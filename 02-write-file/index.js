@@ -4,6 +4,10 @@ const { stdin, stdout } = process;
 
 let str = '';
 
+const path = require('path');
+
+const directoryPath = path.join(__dirname, 'text.txt');
+
 console.log(`
 ===========================================
  Write couple words to test writeStream !
@@ -15,7 +19,7 @@ stdin.on('data', (stream) => {
   str += stream;
 });
 
-const output = fs.createWriteStream('./02-write-file/text.txt', {
+const output = fs.createWriteStream(directoryPath, {
   encoding: 'utf-8',
 });
 process.on('SIGINT', () => {
